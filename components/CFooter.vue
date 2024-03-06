@@ -1,13 +1,6 @@
 <script lang="ts" setup>
-interface MenuItem {
-  name: string
-  link: string
-}
+import type { MenuItem, SocialMedia } from '~/types/general.types'
 
-interface SocialMedia {
-  icon: string
-  link: string
-}
 const props = withDefaults(
   defineProps<{
     /** List of menu */
@@ -15,12 +8,10 @@ const props = withDefaults(
     /** List of social media */
     listSocialMedia?: SocialMedia[]
     /** List of copy right menu */
-    listCopyRightMenu?: MenuItem[]
   }>(),
   {
     listMenu: () => [],
     listSocialMedia: () => [],
-    listCopyRightMenu: () => [],
   },
 )
 </script>

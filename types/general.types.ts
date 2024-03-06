@@ -25,3 +25,13 @@ export interface ProductItem {
   labelSpec?: ItemLabel
   promoInfo?: string
 }
+
+export interface MenuItem {
+  name: string
+  link: string
+}
+
+export interface SocialMedia {
+  icon: string
+  link: string
+}
