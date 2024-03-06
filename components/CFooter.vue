@@ -66,14 +66,14 @@ const props = withDefaults(
   }
 
   &__box-menu {
-    @apply w-full flex flex-col md:flex-row md:items-center py-10;
+    @apply w-full flex flex-col md:flex-row md:items-center py-8 md:py-10;
   }
 
   &__menu {
-    @apply flex flex-1 flex-col md:flex-row md:items-center justify-start space-y-3 md:space-y-0 md:space-x-[60px];
+    @apply flex flex-1 flex-col md:flex-row md:items-center justify-start space-y-2 md:space-y-0 md:space-x-[60px];
 
     &-item {
-      @apply text-base font-medium text-gray-800 hover:underline;
+      @apply text-sm md:text-base font-medium text-gray-800 hover:underline;
     }
   }
 

@@ -34,7 +34,7 @@ const classes = computed(() => {
 
 <style lang="postcss" scoped>
 .c-button {
-  @apply relative inline-flex items-center justify-center px-7 py-3 rounded-full text-base font-medium;
+  @apply relative inline-flex items-center justify-center px-5 py-2 md:px-7 md:py-3 rounded-full text-sm sm:text-base font-medium;
 
   &--solid {
     @apply bg-chestnut-500 text-white transition-colors duration-300 ease-out-relax hover:bg-chestnut-600;

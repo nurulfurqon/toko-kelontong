@@ -64,9 +64,9 @@ const props = withDefaults(
   @apply relative inline-flex px-2;
 
   &__button {
-    @apply inline-flex items-center justify-center space-x-4;
+    @apply inline-flex items-center justify-center space-x-3 md:space-x-4;
     span {
-      @apply text-base font-medium leading-none text-gray-800;
+      @apply text-sm md:text-base font-medium leading-none text-gray-800;
     }
   }
 
@@ -79,10 +79,10 @@ const props = withDefaults(
   }
 
   &__list {
-    @apply absolute top-12 left-0 w-[600px] right-0 translate-y-0 scale-y-100  mb-4 bg-white rounded-lg shadow-lg overflow-hidden grid grid-cols-3 p-2;
+    @apply absolute top-7 md:top-12 -left-[53%] md:left-0 w-[calc(100vw-32px)] md:w-[600px] right-0 z-20 translate-y-0 scale-y-100 mb-4 bg-white rounded-lg shadow-lg overflow-hidden grid grid-cols-2 md:grid-cols-3 p-2;
 
     &-item {
-      @apply flex items-center text-base font-medium space-x-3 text-gray-800 transition-colors duration-300 ease-out-regular hover:bg-chestnut-100 rounded-md;
+      @apply flex items-center text-sm md:text-base font-medium space-x-3 text-gray-800 transition-colors duration-300 ease-out-regular hover:bg-chestnut-100 rounded-md;
     }
 
     &-link {

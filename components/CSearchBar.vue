@@ -83,14 +83,14 @@ const isFoucs = ref(false)
 
 <style lang="postcss" scoped>
 .c-search-bar {
-  @apply relative flex items-center rounded-full bg-white p-2 outline outline-2 outline-transparent transition-all ease-out-relax duration-300 shadow border border-gray-200;
+  @apply relative flex items-center rounded-full bg-white p-1 md:p-2 outline outline-2 outline-transparent transition-all ease-out-relax duration-300 shadow border border-gray-200;
 
   &--focus {
     @apply outline-chestnut-500;
   }
 
   &__input {
-    @apply flex-1 text-base font-medium placeholder-gray-400 text-gray-600 focus:outline-none ml-3;
+    @apply flex-1 text-sm md:text-base font-medium placeholder-gray-400 text-gray-600 focus:outline-none ml-3;
   }
 
   &__button {
@@ -98,7 +98,7 @@ const isFoucs = ref(false)
   }
 
   &__icon {
-    @apply w-5 h-5 fill-white;
+    @apply w-4 h-4 md:w-5 md:h-5 fill-white;
   }
 }
 </style>
