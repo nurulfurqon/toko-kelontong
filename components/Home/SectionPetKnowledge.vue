@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ArticleItem } from '~/types/general.types'
+import type { ArticleItem } from '~/types/general'
 const props = withDefaults(
   defineProps<{
     title?: string

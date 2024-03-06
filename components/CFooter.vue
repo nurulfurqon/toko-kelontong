@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { MenuItem, SocialMedia } from '~/types/general.types'
+import type { MenuItem, SocialMedia } from '~/types/general'
 
 const props = withDefaults(
   defineProps<{

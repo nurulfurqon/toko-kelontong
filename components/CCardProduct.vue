@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Image, ItemLabel } from '~/types/general.types'
+import type { Image, ItemLabel } from '~/types/general'
 
 const props = withDefaults(
   defineProps<{

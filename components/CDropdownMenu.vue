@@ -47,10 +47,7 @@ const props = withDefaults(
           :key="`menu-dropdown-${i}`"
           class="c-dropdown-menu__list-item menu-transition"
         >
-          <NuxtLink
-            :to="`/categories/${option}`"
-            class="c-dropdown-menu__list-link"
-          >
+          <NuxtLink :to="`/c/${option}`" class="c-dropdown-menu__list-link">
             {{ reformateSlug(option) }}
           </NuxtLink>
         </li>

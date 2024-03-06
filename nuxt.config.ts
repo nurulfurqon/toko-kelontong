@@ -73,6 +73,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     // Chore
     '@vueuse/nuxt',
+    '@pinia/nuxt',
     '@nuxtjs/eslint-module',
     '@nuxt/test-utils/module',
   ],
