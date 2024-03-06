@@ -17,11 +17,34 @@ const menuSocialMedia = [
   { icon: '/images/icons/instagram.svg', link: 'https://www.instagram.com' },
   { icon: '/images/icons/youtube.svg', link: 'https://www.youtube.com' },
 ]
+
+const categories = [
+  'smartphones',
+  'laptops',
+  'fragrances',
+  'skincare',
+  'groceries',
+  'home-decoration',
+  'furniture',
+  'tops',
+  'womens-dresses',
+  'womens-shoes',
+  'mens-shirts',
+  'mens-shoes',
+  'mens-watches',
+  'womens-watches',
+  'womens-bags',
+  'womens-jewellery',
+  'sunglasses',
+  'automotive',
+  'motorcycle',
+  'lighting',
+]
 </script>
 
 <template>
   <div>
-    <CHeader :list-menu="menu" />
+    <CHeader :categories="categories" />
     <main class="content">
       <slot />
     </main>
