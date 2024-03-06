@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
+      - name: Setup Corepack 📦
+        run: corepack enable
+      - name: Setup node 🏗
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install Dependencies 📦
+        run: |
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm nuxt prepare
+      - name: Linter 🧹
+        run: pnpm run lint
+      - name: Test 🧪
+        run: pnpm run test
