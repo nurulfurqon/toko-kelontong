@@ -4,7 +4,7 @@ const props = withDefaults(
     /** Href of the button use nuxt-link */
     to?: string
     /** Variations of the button */
-    variant?: 'solid' | 'outline'
+    variant?: 'solid' | 'outline' | 'ghost'
     /** Loading is only affected when props to is empty */
     loading?: boolean
   }>(),
@@ -18,6 +18,7 @@ const classes = computed(() => {
   return {
     'c-button--solid': props.variant === 'solid',
     'c-button--outline': props.variant === 'outline',
+    'c-button--ghost': props.variant === 'ghost',
   }
 })
 </script>
@@ -36,16 +37,23 @@ const classes = computed(() => {
   @apply relative inline-flex items-center justify-center px-7 py-3 rounded-full text-base font-medium;
 
   &--solid {
-    @apply bg-prussian-blue-800 text-white transition-colors duration-300 ease-out-relax hover:bg-prussian-blue-900;
+    @apply bg-chestnut-500 text-white transition-colors duration-300 ease-out-relax hover:bg-chestnut-600;
     svg {
       @apply fill-white;
     }
   }
 
   &--outline {
-    @apply border-2 border-prussian-blue-800 text-prussian-blue-800 transition-colors duration-300 ease-out-relax hover:bg-prussian-blue-50/50;
+    @apply border-2 border-chestnut-500 text-chestnut-500 transition-colors duration-300 ease-out-relax hover:bg-chestnut-100;
     svg {
-      @apply fill-prussian-blue-800;
+      @apply fill-chestnut-500;
+    }
+  }
+
+  &--ghost {
+    @apply text-chestnut-500 transition-colors duration-300 ease-out-relax hover:bg-chestnut-100;
+    svg {
+      @apply fill-chestnut-500;
     }
   }
 

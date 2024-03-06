@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 const menu = [
-  { name: 'Home', link: '/' },
-  { name: 'Category', link: '/category' },
   { name: 'About', link: '/about' },
   { name: 'Contact', link: '/contact' },
+  { name: 'Terms of Service', link: '/terms-of-service' },
+  { name: 'Privacy Policy', link: '/privacy-policy' },
 ]
 
 const menuCopyRight = [

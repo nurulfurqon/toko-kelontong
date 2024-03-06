@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'One More Friend Thousands More Fun! - Monito',
+      title: 'One More Friend Thousands More Fun! - Kelontong',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'One More Friend Thousands More Fun! - Monito',
+          content: 'One More Friend Thousands More Fun! - Kelontong',
         },
         {
           hid: 'twitter:image',
@@ -30,15 +30,15 @@ export default defineNuxtConfig({
         },
         {
           property: 'twitter:url',
-          content: 'https://monito.fly.dev/',
+          content: 'https://toko-kelontong.fly.dev/',
         },
         {
           property: 'twitter:title',
-          content: 'One More Friend Thousands More Fun! - Monito',
+          content: 'One More Friend Thousands More Fun! - Kelontong',
         },
         {
           property: 'twitter:description',
-          content: 'One More Friend Thousands More Fun! - Monito',
+          content: 'One More Friend Thousands More Fun! - Kelontong',
         },
         {
           property: 'twitter:image',
@@ -50,15 +50,15 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:url',
-          content: 'https://monito.fly.dev/',
+          content: 'https://toko-kelontong.fly.dev/',
         },
         {
           property: 'og:title',
-          content: 'One More Friend Thousands More Fun! - Monito',
+          content: 'One More Friend Thousands More Fun! - Kelontong',
         },
         {
           property: 'og:description',
-          content: 'One More Friend Thousands More Fun! - Monito',
+          content: 'One More Friend Thousands More Fun! - Kelontong',
         },
         {
           property: 'og:image',

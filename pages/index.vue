@@ -31,6 +31,6 @@ import { petKnowledgeArticles, listProducts, listPets } from '~/dummy'
 
 <style lang="postcss" scoped>
 .home-wrapper {
-  @apply w-full min-h-screen bg-[#FDFDFD];
+  @apply w-full min-h-screen bg-white;
 }
 </style>

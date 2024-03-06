@@ -60,7 +60,7 @@ const image = {
 
 <style lang="postcss" scoped>
 .home-hero {
-  @apply w-full relative flex flex-col items-center bg-pink-lady-100;
+  @apply w-full relative flex flex-col items-center bg-pink-lady-50;
   &__wrapper {
     @apply w-full min-h-screen max-w-[1212px] py-[60px] px-4 flex items-center relative;
   }
