@@ -92,11 +92,11 @@ const props = withDefaults(
 .product-detail-content {
   @apply w-full relative flex flex-col items-center bg-white;
   &__wrapper {
-    @apply w-full max-w-[1212px] pt-[140px] lg:pt-[120px] px-4 flex flex-col md:flex-row items-start md:justify-between;
+    @apply w-full max-w-[1212px] pt-[140px] lg:pt-[120px] md:pb-16 lg:pb-20 px-4 flex flex-col md:flex-row items-start md:justify-between;
   }
 
   &__gallery {
-    @apply lg:sticky lg:top-[86px] md:flex-1 max-w-lg w-full;
+    @apply lg:sticky lg:top-[86px] md:flex-1 md:max-w-sm lg:max-w-lg w-full;
   }
 
   &__info {

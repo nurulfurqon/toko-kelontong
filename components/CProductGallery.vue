@@ -100,7 +100,7 @@ const imageMain = computed(() => props.listImages[imageActive.value])
   }
 
   &__box-list {
-    @apply relative w-full flex space-x-3 overflow-x-auto p-1 md:overflow-x-hidden md:py-0 md:p-0;
+    @apply relative w-full flex space-x-3 overflow-x-auto p-1;
 
     &-img {
       @apply w-14 h-14 flex-shrink-0 md:w-20 md:h-20 bg-gray-200 relative rounded-md outline-2 outline outline-transparent transition-all duration-300 ease-out-relax overflow-hidden;
