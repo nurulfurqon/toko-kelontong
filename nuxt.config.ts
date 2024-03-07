@@ -78,4 +78,7 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module',
   ],
   css: ['~/assets/css/fonts.css'],
+  runtimeConfig: {
+    apiUrl: '',
+  },
 })

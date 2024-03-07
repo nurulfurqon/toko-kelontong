@@ -35,3 +35,16 @@ export interface SocialMedia {
   icon: string
   link: string
 }
+
+export interface ProductCard {
+  image?: string
+  title?: string
+  category?: string
+  link?: string
+  price?: string | number
+  rating?: number | string
+  isDiscount?: boolean
+  discount?: number
+  discountPrice?: number | string
+  buttonLabel?: string
+}

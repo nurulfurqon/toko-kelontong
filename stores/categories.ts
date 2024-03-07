@@ -1,7 +1,7 @@
-import type { Categories } from '~/types/dummyjson'
+import type { CategoriesResponse } from '~/types/dummyjson'
 
 interface CategoriesState {
-  categories: Categories
+  categories: CategoriesResponse
 }
 
 export const useCatgories = defineStore('categories', {

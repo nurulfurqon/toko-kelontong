@@ -1,86 +1,59 @@
 <script lang="ts" setup>
-import type { Image, ItemLabel } from '~/types/general'
-
-const props = withDefaults(
-  defineProps<{
-    image?: Image
-    name?: string
-    labelInfo?: ItemLabel
-    labelSpec?: ItemLabel
-    price?: string
-    promoInfo?: string
-  }>(),
-  {
-    image: () => ({
-      png: '',
-      webp: '',
-    }),
-    name: '',
-    labelInfo: () => ({
-      name: '',
-      value: '',
-    }),
-    labelSpec: () => ({
-      name: '',
-      value: '',
-    }),
-    price: '',
-    promoInfo: '',
-  },
-)
+import type { ProductCard } from '~/types/general'
+const props = defineProps<ProductCard>()
 </script>
 
 <template>
   <div class="c-card-product">
     <div class="c-card-product__box-image">
-      <picture>
-        <source type="image/webp" :srcset="props.image.webp" />
-        <source type="image/png" :srcset="props.image.png" />
-        <img
-          :src="props.image.png"
-          :alt="props.name"
-          class="c-card-product__image"
-        />
-      </picture>
+      <img
+        :src="props.image"
+        :alt="props.title"
+        class="c-card-product__image"
+      />
     </div>
     <div class="c-card-product__content">
-      <h3 class="c-card-product__name">{{ props.name }}</h3>
+      <h3 class="c-card-product__name">{{ props.title }}</h3>
       <div class="c-card-product__box-info">
-        <div class="c-card-product__box-info-wrapper">
-          <p class="c-card-product__box-info-label">
-            {{ props.labelInfo.name }}
+        <div v-if="props.category" class="c-card-product__category">
+          {{ props.category }}
+        </div>
+        <div class="c-card-product__rating">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006l5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527l1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354L7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273l-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <p>{{ props.rating }}</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap">
+        <p
+          class="c-card-product__price"
+          :class="{ 'c-card-product__price--disabled': props.isDiscount }"
+        >
+          {{ props.price }}
+        </p>
+        <div v-if="props.isDiscount" class="flex items-start space-x-1">
+          <p class="c-card-product__price">
+            {{ props.discountPrice }}
           </p>
-          <p class="c-card-product__box-info-value">
-            {{ props.labelInfo.value }}
+          <p class="c-card-product__promo-discount">
+            ({{ props.discount }}% off)
           </p>
         </div>
-        <template v-if="props.labelSpec.name && props.labelSpec.value">
-          <div class="c-card-product__box-info-dot">•</div>
-          <div class="c-card-product__box-info-wrapper">
-            <p class="c-card-product__box-info-label">
-              {{ props.labelSpec.name }}
-            </p>
-            <p class="c-card-product__box-info-value">
-              {{ props.labelSpec.value }}
-            </p>
-          </div>
-        </template>
       </div>
-      <p class="c-card-product__price">
-        {{ props.price }}
-      </p>
-      <div v-if="props.promoInfo" class="c-card-product__box-promo">
-        <img src="/images/icons/gift.svg" alt="Promo" />
-        <div class="c-card-product__box-promo-dot">•</div>
-        <p class="c-card-product__box-promo-text">{{ props.promoInfo }}</p>
-      </div>
+      <div class="c-card-product__button">{{ props.buttonLabel }}</div>
     </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .c-card-product {
-  @apply relative w-full h-full p-2 rounded-xl border border-gray-100 shadow-xl shadow-gray-200/70 bg-white;
+  @apply relative w-full h-full p-2 rounded-xl border border-gray-200 bg-white;
 
   &__box-image {
     @apply relative rounded-xl w-full pt-[100%] mb-2;
@@ -89,39 +62,43 @@ const props = withDefaults(
     @apply absolute top-0 left-0 w-full h-full object-cover rounded-xl;
   }
   &__content {
-    @apply w-full flex flex-col p-2;
+    @apply w-full flex flex-col p-1 md:p-2;
   }
   &__name {
-    @apply text-base font-bold text-[#00171F] mb-1;
+    @apply text-base font-bold text-gray-800 leading-tight mb-2;
   }
   &__box-info {
-    @apply inline-flex items-center mb-1;
+    @apply flex flex-wrap items-center mb-4;
+  }
+  &__category {
+    @apply text-sm capitalize bg-chestnut-200 flex-shrink-0 px-2 py-[2px] mr-3 rounded-md font-medium text-gray-800;
+  }
+  &__rating {
+    @apply flex items-center space-x-1;
 
-    &-wrapper {
-      @apply flex items-center space-x-2;
+    svg {
+      @apply w-5 h-5 text-yellow-400;
     }
-    &-label {
-      @apply text-xs font-medium text-[#667479];
-    }
-    &-value {
-      @apply text-xs font-bold text-[#667479];
-    }
-    &-dot {
-      @apply text-sm text-[#667479] mx-2;
+
+    p {
+      @apply text-base font-medium mt-1 text-gray-800 leading-none;
     }
   }
   &__price {
-    @apply text-sm font-bold text-[#00171F];
-  }
-  &__box-promo {
-    @apply relative w-full flex items-center px-3 py-1 rounded-lg bg-pink-lady-100 mt-3 space-x-2;
+    @apply text-xl font-medium text-gray-800;
 
-    &-dot {
-      @apply text-base text-prussian-blue-900 pt-[2px];
+    &--disabled {
+      @apply line-through text-gray-400 mr-2;
     }
-    &-text {
-      @apply text-sm font-bold text-prussian-blue-900 pt-[2px];
+  }
+  &__promo {
+    @apply flex items-start space-x-1;
+    &-discount {
+      @apply text-xl font-medium text-green-600;
     }
+  }
+  &__button {
+    @apply relative w-full flex items-center justify-center px-3 py-2 text-center rounded-lg bg-chestnut-500 text-white font-medium capitalize mt-4 space-x-2 ease-out-regular transition duration-300 hover:bg-chestnut-600;
   }
 }
 </style>

@@ -57,7 +57,7 @@ const props = withDefaults(
     @apply w-full flex flex-col items-start p-2;
   }
   &__tag {
-    @apply inline-flex text-[10px] font-bold text-white bg-[#007AB3] rounded-full py-[2px] px-3 mb-2.5;
+    @apply inline-flex text-[10px] font-bold text-white bg-chestnut-500 rounded-full py-[2px] px-3 mb-2.5;
   }
   &__name {
     @apply text-base font-bold text-[#00171F] mb-2;

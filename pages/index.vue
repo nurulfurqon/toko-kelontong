@@ -1,11 +1,17 @@
 <script lang="ts" setup>
 import { petKnowledgeArticles, listProducts, listPets } from '~/dummy'
+
+const showcases = useShowcases()
+
+if (!showcases.topProducts.length) {
+  await showcases.fetchTopProducts()
+}
 </script>
 
 <template>
   <div class="home-wrapper">
-    <HomeSectionHero />
-    <HomeSectionCatalog
+    <HomeSectionHero :list-products="showcases.topProducts" />
+    <!-- <HomeSectionCatalog
       title="Take a look at some of our pets"
       subtitle="Whats new?"
       btn-more-label="View more"
@@ -25,7 +31,7 @@ import { petKnowledgeArticles, listProducts, listPets } from '~/dummy'
       btn-more-label="View more"
       btn-more-link="/articles"
       :list-articles="petKnowledgeArticles"
-    />
+    /> -->
   </div>
 </template>
 

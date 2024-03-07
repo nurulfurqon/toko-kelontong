@@ -115,7 +115,7 @@ onMounted(() => {
 
 <style lang="postcss" scoped>
 .c-header {
-  @apply w-full flex flex-col md:flex-row items-center justify-center fixed top-0 z-20 bg-pink-lady-50;
+  @apply w-full flex flex-col md:flex-row items-center justify-center fixed top-0 z-20 bg-pink-lady-50/80 backdrop-blur-md;
 
   &__body {
     @apply w-full max-w-[1212px] p-4 flex items-center;
@@ -127,7 +127,7 @@ onMounted(() => {
 
   &__logo {
     svg {
-      @apply h-10 md:h-8;
+      @apply h-9 md:h-8;
     }
   }
 
