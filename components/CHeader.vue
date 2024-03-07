@@ -147,7 +147,7 @@ onMounted(() => {
     }
 
     &-item {
-      @apply text-base font-bold text-prussian-blue-800;
+      @apply text-base font-bold text-gray-800;
     }
   }
 

@@ -20,19 +20,6 @@ export default {
         'in-out-powerful': 'cubic-bezier(.86, 0, .07, 1)',
       },
       colors: {
-        'prussian-blue': {
-          '50': '#b3e4ff',
-          '100': '#9edbff',
-          '200': '#75d6ff',
-          '300': '#2ec7ff',
-          '400': '#00a5e0',
-          '500': '#0081c2',
-          '600': '#0065a3',
-          '700': '#004675',
-          '800': '#003459', // That used
-          '900': '#00263d',
-          '950': '#000f1a',
-        },
         chestnut: {
           '50': '#fcf4f3',
           '100': '#fae7e5',
@@ -49,7 +36,7 @@ export default {
 
         'pink-lady': {
           '50': '#fef8ee',
-          '100': '#fceed5', // That used
+          '100': '#fceed5',
           '200': '#f8dcb0',
           '300': '#f4c27d',
           '400': '#ee9e49',
