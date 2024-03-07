@@ -57,7 +57,7 @@ const props = defineProps<ProductCard>()
 
 <style lang="postcss" scoped>
 .c-card-product {
-  @apply relative flex flex-col w-full h-full p-2 rounded-xl border border-gray-200 bg-white;
+  @apply relative flex flex-col w-full h-full p-2 rounded-xl border border-gray-200 bg-white transition-shadow duration-300 ease-out-relax hover:shadow-md;
 
   &__box-image {
     @apply relative rounded-xl w-full pt-[100%] mb-2;

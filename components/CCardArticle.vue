@@ -30,7 +30,7 @@ const props = defineProps<ArticleCard>()
 
 <style lang="postcss" scoped>
 .c-card-article {
-  @apply relative w-full h-full flex flex-col p-2 rounded-xl border border-gray-200 bg-white;
+  @apply relative w-full h-full flex flex-col p-2 rounded-xl border border-gray-200 bg-white transition-shadow duration-300 ease-out-relax hover:shadow-md;
 
   &__box-image {
     @apply relative rounded-xl w-full pt-[70%] mb-2 flex;
