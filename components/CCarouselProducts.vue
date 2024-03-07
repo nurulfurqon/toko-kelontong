@@ -9,7 +9,7 @@ const props = withDefaults(
   },
 )
 
-const { reformateSlug, convertToUSD, calculateTotalPrice } = useHelper()
+const { reformateSlug, convertToUSD } = useHelper()
 
 const carouselContainer = ref<HTMLElement | null>(null)
 const carouselItem = ref<HTMLElement[] | null>(null)
@@ -111,6 +111,7 @@ const isNextButtonHide = computed(() => x.value >= lastItemPosition.value)
           :price="convertToUSD(product.price || 0)"
           :category="reformateSlug(product.category || '')"
           :rating="product.rating"
+          :link="`/p/${product.category}/${product.id}`"
           button-label="View Product"
         />
       </div>

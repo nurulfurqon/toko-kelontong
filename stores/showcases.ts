@@ -26,5 +26,29 @@ export const useShowcases = defineStore('showcases', {
         console.error(error)
       }
     },
+    async fetchMostBuyedProducts() {
+      try {
+        const { data } = await useFetch<ProductsResponse>(
+          '/api/products/category/home-decoration?limit=4&select=id,title,thumbnail,price,rating,category,discountPercentage',
+        )
+        if (data.value) {
+          this.mostBuyedProducts = data.value?.products
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async fetchRecomendedProducts() {
+      try {
+        const { data } = await useFetch<ProductsResponse>(
+          '/api/products/category/skincare?limit=4&select=id,title,thumbnail,price,rating,category,discountPercentage',
+        )
+        if (data.value) {
+          this.recomendedProducts = data.value?.products
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    },
   },
 })
