@@ -101,7 +101,6 @@ onMounted(() => {
         <CButton v-if="!props.isSignedIn" class="c-header__btn-join">
           Login
         </CButton>
-        <CDropdownLang v-else class="c-header__dropdown-lang" />
       </nav>
     </div>
     <div class="c-header__bottom-wrap">
