@@ -83,7 +83,7 @@ const props = defineProps<ProductCard>()
     @apply flex flex-wrap items-center mb-4;
   }
   &__category {
-    @apply text-xs md:text-sm capitalize bg-chestnut-200 flex-shrink-0 px-2 py-[2px] mb-2 mr-3 rounded-md font-medium text-gray-800;
+    @apply text-xs md:text-sm capitalize bg-chestnut-200 flex-shrink-0 px-2 py-[2px] mb-2 mr-3 rounded-md font-medium text-chestnut-800;
   }
   &__rating {
     @apply flex items-center space-x-1 mb-2;

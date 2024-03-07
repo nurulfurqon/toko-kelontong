@@ -48,3 +48,11 @@ export interface ProductCard {
   discountPrice?: number | string
   buttonLabel?: string
 }
+
+export interface ArticleCard {
+  image?: string
+  title?: string
+  tags?: string[]
+  link?: string
+  description?: string
+}

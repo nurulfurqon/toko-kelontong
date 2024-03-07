@@ -12,6 +12,10 @@ if (!showcases.mostBuyedProducts.length) {
 if (!showcases.recomendedProducts.length) {
   await showcases.fetchRecomendedProducts()
 }
+
+if (!showcases.latestPosts.length) {
+  await showcases.fetchLatestPosts()
+}
 </script>
 
 <template>
@@ -31,13 +35,11 @@ if (!showcases.recomendedProducts.length) {
       btn-more-link="/c/skincare"
       :list-products="showcases.recomendedProducts"
     />
-    <!-- <HomeSectionPetKnowledge
-      title="Useful pet knowledge"
-      subtitle="You already know ?"
-      btn-more-label="View more"
-      btn-more-link="/articles"
-      :list-articles="petKnowledgeArticles"
-    /> -->
+    <HomeSectionArticles
+      title="Insightful articles for you"
+      subtitle="Latest articles"
+      :list-articles="showcases.latestPosts"
+    />
   </div>
 </template>
 

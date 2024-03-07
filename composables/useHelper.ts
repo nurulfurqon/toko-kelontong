@@ -32,9 +32,18 @@ export const useHelper = () => {
     return totalPrice
   }
 
+  function truncate(str: string, maxLength: number): string {
+    if (str.length <= maxLength) {
+      return str
+    } else {
+      return str.substring(0, maxLength) + '...'
+    }
+  }
+
   return {
     reformateSlug,
     convertToUSD,
     calculateTotalPrice,
+    truncate,
   }
 }

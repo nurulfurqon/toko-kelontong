@@ -1,10 +1,16 @@
 /* eslint-disable no-console */
-import type { ProductItem, ProductsResponse } from '~/types/dummyjson'
+import type {
+  ProductItem,
+  ProductsResponse,
+  PostItem,
+  PostsResponse,
+} from '~/types/dummyjson'
 
 interface ShowcaseState {
   topProducts: ProductItem[]
   mostBuyedProducts: ProductItem[]
   recomendedProducts: ProductItem[]
+  latestPosts: PostItem[]
 }
 
 export const useShowcases = defineStore('showcases', {
@@ -12,6 +18,7 @@ export const useShowcases = defineStore('showcases', {
     topProducts: [],
     mostBuyedProducts: [],
     recomendedProducts: [],
+    latestPosts: [],
   }),
   actions: {
     async fetchTopProducts() {
@@ -45,6 +52,18 @@ export const useShowcases = defineStore('showcases', {
         )
         if (data.value) {
           this.recomendedProducts = data.value?.products
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async fetchLatestPosts() {
+      try {
+        const { data } = await useFetch<PostsResponse>(
+          '/api/posts?limit=3&select=id,title,body,tags,reactions',
+        )
+        if (data.value) {
+          this.latestPosts = data.value?.posts
         }
       } catch (error) {
         console.error(error)

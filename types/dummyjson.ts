@@ -21,8 +21,18 @@ export interface ProductsResponse {
   limit: number
 }
 
-export interface ProductQuery {
-  limit?: number | string
-  skip?: number | string
-  select?: string
+export interface PostItem {
+  id: number
+  title?: string
+  body?: string
+  userId?: number
+  tags?: string[]
+  reactions?: number
+}
+
+export interface PostsResponse {
+  posts: PostItem[]
+  total: number
+  skip: number
+  limit: number
 }
