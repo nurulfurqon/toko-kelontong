@@ -38,17 +38,34 @@ async function handleButtonMore() {
       <template #title>{{ reformateSlug(name as string) }}</template>
     </CHero>
     <ProductList
+      v-if="categoryStore.categoryProducts.products.length > 0"
       :list-products="categoryStore.categoryProducts.products"
       button-more-label="Load More"
       :is-button-more="hasMoreButton"
       :is-loading-data="isMoreLoading"
       @button-more="handleButtonMore"
     />
+    <div v-else class="categories__not-found">
+      <img src="/images/not-found.png" alt="Not Found" />
+      <h3 class="categories__not-found-title">Oops! product isn't found</h3>
+    </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .categories {
   @apply w-full min-h-screen bg-white;
+
+  &__not-found {
+    @apply min-h-[50vh] flex flex-col items-center justify-center py-14 md:py-20;
+
+    img {
+      @apply w-36 h-36 md:w-44 md:h-44 object-cover;
+    }
+
+    &-title {
+      @apply mt-4 text-lg font-semibold;
+    }
+  }
 }
 </style>

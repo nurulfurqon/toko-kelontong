@@ -26,6 +26,9 @@ watch(
   () => search.value,
   async (val) => {
     await searchStore.fetchSearchProducts(val, LIMIT)
+    window.scrollTo({
+      top: 0,
+    })
   },
 )
 
@@ -56,17 +59,34 @@ async function handleButtonMore() {
       </template>
     </CHero>
     <ProductList
+      v-if="searchStore.searchProducts.products.length > 0"
       :list-products="searchStore.searchProducts.products"
       button-more-label="Load More"
       :is-loading-data="isMoreLoading"
       :is-button-more="hasMoreButton"
       @button-more="handleButtonMore"
     />
+    <div v-else class="product-search__not-found">
+      <img src="/images/not-found.png" alt="Not Found" />
+      <h3 class="product-search__not-found-title">Oops! product isn't found</h3>
+    </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .product-search {
   @apply w-full min-h-screen bg-white;
+
+  &__not-found {
+    @apply min-h-[50vh] flex flex-col items-center justify-center py-14 md:py-20;
+
+    img {
+      @apply w-36 h-36 md:w-44 md:h-44 object-cover;
+    }
+
+    &-title {
+      @apply mt-4 text-lg font-semibold;
+    }
+  }
 }
 </style>
