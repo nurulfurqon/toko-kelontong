@@ -1,3 +1,3 @@
 <template>
-  <div>Detail Article</div>
+  <GeneralConstruction />
 </template>

@@ -1,3 +1,3 @@
 <template>
-  <div>wishlist</div>
+  <GeneralConstruction />
 </template>

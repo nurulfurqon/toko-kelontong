@@ -1,4 +1,4 @@
 <script lang="ts" setup></script>
 <template>
-  <div class="w-full min-h-screen pt-64 flex items-center justify-center"></div>
+  <GeneralConstruction />
 </template>
