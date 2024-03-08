@@ -3,7 +3,8 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      title: 'One More Friend Thousands More Fun! - Kelontong',
+      title:
+        'Discover Endless Treasures at Our Online Shop | Shop Fashion, Electronics & More - Kelontong',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -11,14 +12,15 @@ export default defineNuxtConfig({
           hid: 'description',
           name: 'description',
           content:
-            'Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!',
+            'Explore a vast array of products at our online shop, from trendy fashion pieces to cutting-edge electronics. Find everything you need in one convenient place. Start shopping today!',
         },
         { name: 'format-detection', content: 'telephone=no' },
         { hid: 'og:image', property: 'og:image', content: '/images/meta.jpg' },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'One More Friend Thousands More Fun! - Kelontong',
+          content:
+            'Discover Endless Treasures at Our Online Shop | Shop Fashion, Electronics & More - Kelontong',
         },
         {
           hid: 'twitter:image',
@@ -35,11 +37,13 @@ export default defineNuxtConfig({
         },
         {
           property: 'twitter:title',
-          content: 'One More Friend Thousands More Fun! - Kelontong',
+          content:
+            'Discover Endless Treasures at Our Online Shop | Shop Fashion, Electronics & More - Kelontong',
         },
         {
           property: 'twitter:description',
-          content: 'One More Friend Thousands More Fun! - Kelontong',
+          content:
+            'Discover Endless Treasures at Our Online Shop | Shop Fashion, Electronics & More - Kelontong',
         },
         {
           property: 'twitter:image',
@@ -55,11 +59,13 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:title',
-          content: 'One More Friend Thousands More Fun! - Kelontong',
+          content:
+            'Discover Endless Treasures at Our Online Shop | Shop Fashion, Electronics & More - Kelontong',
         },
         {
           property: 'og:description',
-          content: 'One More Friend Thousands More Fun! - Kelontong',
+          content:
+            'Discover Endless Treasures at Our Online Shop | Shop Fashion, Electronics & More - Kelontong',
         },
         {
           property: 'og:image',

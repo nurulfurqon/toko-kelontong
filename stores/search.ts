@@ -1,11 +1,11 @@
 import type { ProductsResponse } from '~/types/dummyjson'
 
-interface SearchProductsState {
+interface SearchState {
   searchProducts: ProductsResponse
 }
 
-export const useSearchProducts = defineStore('searchProducts', {
-  state: (): SearchProductsState => ({
+export const useSearch = defineStore('search', {
+  state: (): SearchState => ({
     searchProducts: {} as ProductsResponse,
   }),
   actions: {

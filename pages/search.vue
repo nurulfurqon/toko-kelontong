@@ -1,7 +1,6 @@
-<!-- eslint-disable no-console -->
 <script lang="ts" setup>
 const route = useRoute()
-const searchProducts = useSearchProducts()
+const searchStore = useSearch()
 
 const LIMIT = 8
 
@@ -21,26 +20,26 @@ watch(
   { immediate: true },
 )
 
-await searchProducts.fetchSearchProducts(search.value, LIMIT)
+await searchStore.fetchSearchProducts(search.value, LIMIT)
 
 watch(
   () => search.value,
   async (val) => {
-    await searchProducts.fetchSearchProducts(val, LIMIT)
+    await searchStore.fetchSearchProducts(val, LIMIT)
   },
 )
 
 const hasMoreButton = computed(() => {
   return (
-    searchProducts.searchProducts.products.length <
-    searchProducts.searchProducts.total
+    searchStore.searchProducts.products.length <
+    searchStore.searchProducts.total
   )
 })
 
 async function handleButtonMore() {
-  const skipValue = searchProducts.searchProducts.skip + LIMIT
+  const skipValue = searchStore.searchProducts.skip + LIMIT
   isMoreLoading.value = true
-  await searchProducts.fetchMoreSearchProducts(search.value, LIMIT, skipValue)
+  await searchStore.fetchMoreSearchProducts(search.value, LIMIT, skipValue)
   isMoreLoading.value = false
   window.scrollTo({
     top: document.body.scrollHeight,
@@ -53,11 +52,11 @@ async function handleButtonMore() {
     <CHero>
       <template #title>{{ `Result for "${search}"` }}</template>
       <template #text>
-        {{ `${searchProducts.searchProducts.total} products found` }}
+        {{ `${searchStore.searchProducts.total} products found` }}
       </template>
     </CHero>
     <ProductList
-      :list-products="searchProducts.searchProducts.products"
+      :list-products="searchStore.searchProducts.products"
       button-more-label="Load More"
       :is-loading-data="isMoreLoading"
       :is-button-more="hasMoreButton"

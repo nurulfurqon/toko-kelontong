@@ -1,10 +1,14 @@
+<script lang="ts" setup>
+const slots = useSlots()
+</script>
+
 <template>
   <section class="c-hero">
     <div class="c-hero__wrapper">
       <h2 class="c-hero__title">
         <slot name="title"></slot>
       </h2>
-      <p class="c-hero__text">
+      <p v-if="slots.text" class="c-hero__text">
         <slot name="text"></slot>
       </p>
     </div>

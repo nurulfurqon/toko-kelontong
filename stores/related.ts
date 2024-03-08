@@ -5,12 +5,12 @@ interface RelatedProductItems {
   products: ProductItem[]
 }
 
-interface RelatedProductsState {
+interface RelatedState {
   relatedProducts: RelatedProductItems[]
 }
 
-export const useRelatedProducts = defineStore('relatedProducts', {
-  state: (): RelatedProductsState => ({
+export const useRelated = defineStore('related', {
+  state: (): RelatedState => ({
     relatedProducts: [],
   }),
   getters: {

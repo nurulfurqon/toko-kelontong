@@ -3,7 +3,7 @@ import type { ProductItem } from '~/types/dummyjson'
 const route = useRoute()
 
 const { category, id } = route.params
-const relatedProducts = useRelatedProducts()
+const relatedStore = useRelated()
 const product = await $fetch<ProductItem>('/api/products/' + id)
 if (!product) {
   navigateTo('/')
@@ -35,8 +35,8 @@ useHead({
   ],
 })
 
-if (!relatedProducts.getRelatedProducts(category as string)) {
-  await relatedProducts.fetchRelatedProducts(category as string)
+if (!relatedStore.getRelatedProducts(category as string)) {
+  await relatedStore.fetchRelatedProducts(category as string)
 }
 </script>
 
@@ -49,7 +49,7 @@ if (!relatedProducts.getRelatedProducts(category as string)) {
       btn-more-label="View more"
       :btn-more-link="`/c/${category}`"
       :list-products="
-        relatedProducts.getRelatedProducts(category as string)?.products
+        relatedStore.getRelatedProducts(category as string)?.products
       "
     />
   </div>

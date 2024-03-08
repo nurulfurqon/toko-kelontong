@@ -21,7 +21,7 @@ const menuSocialMedia = [
 const search = ref('')
 const router = useRouter()
 const route = useRoute()
-const categories = useCatgories()
+const categories = useCategories()
 
 function handleSearch() {
   if (search.value) {
