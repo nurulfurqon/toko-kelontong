@@ -86,7 +86,6 @@ const props = withDefaults(
             )
           "
           is-discount
-          button-label="View Product"
         />
       </div>
     </div>

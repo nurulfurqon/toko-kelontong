@@ -100,7 +100,7 @@ const props = withDefaults(
   }
 
   &__info {
-    @apply flex flex-col md:flex-1 w-full py-6 md:px-10 md:py-5;
+    @apply flex flex-col md:flex-1 w-full py-6 md:pr-10 md:pl-10 lg:pl-20 md:py-5;
 
     h2 {
       @apply text-2xl md:text-4xl font-semibold text-gray-800;

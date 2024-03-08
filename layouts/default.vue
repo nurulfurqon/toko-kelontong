@@ -18,12 +18,33 @@ const menuSocialMedia = [
   { icon: '/images/icons/youtube.svg', link: 'https://www.youtube.com' },
 ]
 
+const search = ref('')
+const router = useRouter()
+const route = useRoute()
 const categories = useCatgories()
+
+function handleSearch() {
+  if (search.value) {
+    router.push(`/search?q=${search.value}`)
+  }
+}
+
+watch(
+  () => route.path,
+  () => {
+    search.value = ''
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
   <div>
-    <CHeader :categories="categories.categories" />
+    <CHeader
+      v-model:search="search"
+      :categories="categories.categories"
+      @submit="handleSearch"
+    />
     <main class="content">
       <slot />
     </main>

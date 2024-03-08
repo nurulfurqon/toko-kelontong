@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const search = defineModel<string>('search')
 const props = withDefaults(
   defineProps<{
     /** List of category on header */
@@ -10,6 +11,10 @@ const props = withDefaults(
   },
 )
 
+const emit = defineEmits<{
+  (e: 'submit', data: string): void
+}>()
+
 const isMobile = ref(false)
 
 const { width } = useWindowSize()
@@ -20,6 +25,10 @@ watch(
     isMobile.value = value < 768
   },
 )
+
+function handleSearch() {
+  emit('submit', search.value || '')
+}
 
 onMounted(() => {
   isMobile.value = width.value < 768
@@ -64,8 +73,11 @@ onMounted(() => {
       </div>
       <nav v-if="!isMobile" class="c-header__box-search-bar">
         <CSearchBar
+          v-model="search"
           class="c-header__search-bar"
           placeholder="Search something here"
+          @click-search="handleSearch"
+          @enter="handleSearch"
         />
       </nav>
       <nav class="c-header__actions">
@@ -105,8 +117,11 @@ onMounted(() => {
     </div>
     <div class="c-header__bottom-wrap">
       <CSearchBar
+        v-model="search"
         class="c-header__search-bar"
         placeholder="Search something here"
+        @click-search="handleSearch"
+        @enter="handleSearch"
       />
     </div>
   </header>
