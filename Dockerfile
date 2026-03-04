@@ -10,11 +10,11 @@ RUN corepack enable
 
 COPY package.json pnpm-lock.yaml /app/
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
 COPY . /app
 
-RUN pnpm run build
+RUN pnpm run postinstall && pnpm run build
 
 FROM gcr.io/distroless/nodejs20-debian12 as prod
 

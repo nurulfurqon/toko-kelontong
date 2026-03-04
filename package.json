@@ -14,7 +14,8 @@
     "lint:fix": "eslint . --fix",
     "prepare": "husky",
     "clean": "rm -rf .nuxt dist .output",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.14.0",
