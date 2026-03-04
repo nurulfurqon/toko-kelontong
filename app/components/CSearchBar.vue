@@ -12,17 +12,17 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   /** Emit when the search bar is entered */
-  (event: 'enter', value: KeyboardEvent): void
+  enter: [value: KeyboardEvent]
   /** Emit when the search bar is blurred */
-  (event: 'blur', value: FocusEvent): void
+  blur: [value: FocusEvent]
   /** Emit when the search bar is focused */
-  (event: 'focus', value: FocusEvent): void
+  focus: [value: FocusEvent]
   /** Emit when the search bar is keyup */
-  (event: 'keyup', value: KeyboardEvent): void
+  keyup: [value: KeyboardEvent]
   /** Emit when the search bar is keydown */
-  (event: 'keydown', value: KeyboardEvent): void
+  keydown: [value: KeyboardEvent]
   /** Emit when the search bar is clicked */
-  (event: 'clickSearch'): void
+  clickSearch: []
 }>()
 
 function handleBlur(event: FocusEvent) {

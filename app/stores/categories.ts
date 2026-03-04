@@ -20,7 +20,6 @@ export const useCategories = defineStore('categories', {
           this.categoryProducts = data
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(error)
       }
     },
@@ -40,7 +39,6 @@ export const useCategories = defineStore('categories', {
           this.categoryProducts.skip = data.skip
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(error)
       }
     },

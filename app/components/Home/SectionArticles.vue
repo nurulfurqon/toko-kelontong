@@ -38,7 +38,7 @@ const props = withDefaults(
             :tags="article.tags"
             :description="truncate(article.body || '', 100)"
             :link="`/articles/${article.id}`"
-            image="https://source.unsplash.com/random/400×400"
+            :image="`https://picsum.photos/seed/article-${i}/400/400`"
           />
         </template>
       </div>

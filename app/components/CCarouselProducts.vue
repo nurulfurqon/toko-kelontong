@@ -31,16 +31,16 @@ onMounted(() => {
 })
 
 const itemWidth = computed(() => {
-  if (carouselItem.value) {
+  if (carouselItem.value?.[0]) {
     return carouselItem.value[0].clientWidth
   }
   return 0
 })
 
 const lastItemPosition = computed(() => {
-  if (carouselItem.value) {
-    const lastItem =
-      carouselItem.value[carouselItem.value.length - 2].offsetLeft
+  const items = carouselItem.value
+  if (items) {
+    const lastItem = items[items.length - 2]?.offsetLeft ?? 0
     return lastItem
   }
   return 0

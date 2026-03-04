@@ -11,9 +11,9 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   /* Emit event when user click on image */
-  (e: 'changeImage', value: number): void
-  (e: 'closeModal'): void
-  (e: 'openModal'): void
+  changeImage: [value: number]
+  closeModal: []
+  openModal: []
 }>()
 
 const imageActive = ref(0)
@@ -121,7 +121,7 @@ const imageMain = computed(() => props.listImages[imageActive.value])
     @apply fixed left-0 w-full h-full inset-0 bg-black/60 flex items-center justify-center z-[999] p-4;
 
     &-content {
-      @apply relative w-full max-w-[600px] h-auto rounded-xl shadow-lg z-10;
+      @apply relative w-full max-w-[600px] bg-white h-auto rounded-xl shadow-lg z-10;
       img {
         @apply w-full h-auto max-h-[600px] object-cover rounded-xl;
       }

@@ -32,7 +32,7 @@ if (!showcases.latestPosts.length) {
       title="Beaty & Personal Care"
       subtitle="Best seller products for you"
       btn-more-label="View more"
-      btn-more-link="/c/skincare"
+      btn-more-link="/c/skin-care"
       :list-products="showcases.recomendedProducts"
     />
     <HomeSectionArticles

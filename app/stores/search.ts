@@ -18,7 +18,6 @@ export const useSearch = defineStore('search', {
           this.searchProducts = data
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(error)
       }
     },
@@ -34,7 +33,6 @@ export const useSearch = defineStore('search', {
           this.searchProducts.skip = data.skip
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(error)
       }
     },

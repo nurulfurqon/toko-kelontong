@@ -1,32 +1,38 @@
 name: CI
-
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+      - staging
+  pull_request: {}
+
+concurrency:
+  group: ${{ github.job }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  lint-and-test:
-    name: Lint and Test
+  ci:
+    name: CI Jobs
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        node-version: [20]
     steps:
-      - name: Checkout 🛎
+      - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
-      - name: Setup Corepack 📦
-        run: corepack enable
-      - name: Setup node 🏗
+      - name: 🤌 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'pnpm'
-      - name: Install Dependencies 📦
-        run: |
-          pnpm install --frozen-lockfile --ignore-scripts
-          pnpm nuxt prepare
-      - name: Linter 🧹
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+      - name: 📥 Download deps
+        run: pnpm install
+      - name: 🔬 Lint
         run: pnpm run lint
-      - name: Test 🧪
+      - name: 🧪 Run test
         run: pnpm run test

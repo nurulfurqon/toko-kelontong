@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import type {
   ProductItem,
   ProductsResponse,
@@ -23,11 +22,11 @@ export const useShowcases = defineStore('showcases', {
   actions: {
     async fetchTopProducts() {
       try {
-        const { data } = await useFetch<ProductsResponse>(
+        const data = await $fetch<ProductsResponse>(
           '/api/products/category/tops?limit=5&select=id,title,thumbnail,price,rating,category,discountPercentage',
         )
-        if (data.value) {
-          this.topProducts = data.value?.products
+        if (data) {
+          this.topProducts = data.products
         }
       } catch (error) {
         console.error(error)
@@ -35,11 +34,11 @@ export const useShowcases = defineStore('showcases', {
     },
     async fetchMostBuyedProducts() {
       try {
-        const { data } = await useFetch<ProductsResponse>(
+        const data = await $fetch<ProductsResponse>(
           '/api/products/category/home-decoration?limit=4&select=id,title,thumbnail,price,rating,category,discountPercentage',
         )
-        if (data.value) {
-          this.mostBuyedProducts = data.value?.products
+        if (data) {
+          this.mostBuyedProducts = data.products
         }
       } catch (error) {
         console.error(error)
@@ -47,11 +46,11 @@ export const useShowcases = defineStore('showcases', {
     },
     async fetchRecomendedProducts() {
       try {
-        const { data } = await useFetch<ProductsResponse>(
-          '/api/products/category/skincare?limit=4&select=id,title,thumbnail,price,rating,category,discountPercentage',
+        const data = await $fetch<ProductsResponse>(
+          '/api/products/category/skin-care?limit=4&select=id,title,thumbnail,price,rating,category,discountPercentage',
         )
-        if (data.value) {
-          this.recomendedProducts = data.value?.products
+        if (data) {
+          this.recomendedProducts = data.products
         }
       } catch (error) {
         console.error(error)
@@ -59,11 +58,11 @@ export const useShowcases = defineStore('showcases', {
     },
     async fetchLatestPosts() {
       try {
-        const { data } = await useFetch<PostsResponse>(
+        const data = await $fetch<PostsResponse>(
           '/api/posts?limit=3&select=id,title,body,tags,reactions',
         )
-        if (data.value) {
-          this.latestPosts = data.value?.posts
+        if (data) {
+          this.latestPosts = data.posts
         }
       } catch (error) {
         console.error(error)

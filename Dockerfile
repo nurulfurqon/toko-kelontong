@@ -1,11 +1,16 @@
 FROM node:20-alpine as build
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 
 WORKDIR /app
 
-COPY package.json /app
+# Prepare pnpm https://pnpm.io/installation#using-corepack
+RUN npm install --global corepack@latest
+RUN corepack enable
 
-RUN npm install -g pnpm
-RUN pnpm install
+COPY package.json pnpm-lock.yaml /app/
+
+RUN pnpm install --frozen-lockfile
 
 COPY . /app
 

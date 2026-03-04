@@ -21,17 +21,16 @@ export const useRelated = defineStore('related', {
   actions: {
     async fetchRelatedProducts(name: string) {
       try {
-        const { data } = await useFetch<ProductsResponse>(
+        const data = await $fetch<ProductsResponse>(
           `/api/products/category/${name}?limit=4&skip=1&select=id,title,thumbnail,price,rating,category,discountPercentage`,
         )
-        if (data.value) {
+        if (data) {
           this.relatedProducts.push({
             category: name,
-            products: data.value?.products,
+            products: data.products,
           })
         }
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(error)
       }
     },

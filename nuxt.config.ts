@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -9,21 +12,18 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
-          hid: 'description',
           name: 'description',
           content:
             'Explore a vast array of products at our online shop, from trendy fashion pieces to cutting-edge electronics. Find everything you need in one convenient place. Start shopping today!',
         },
         { name: 'format-detection', content: 'telephone=no' },
-        { hid: 'og:image', property: 'og:image', content: '/images/meta.jpg' },
+        { property: 'og:image', content: '/images/meta.jpg' },
         {
-          hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
           content:
             'Discover Endless Treasures at Our Online Shop | Shop Fashion, Electronics & More - Kelontong',
         },
         {
-          hid: 'twitter:image',
           name: 'twitter:image',
           content: '/images/meta.jpg',
         },
@@ -78,13 +78,16 @@ export default defineNuxtConfig({
   modules: [
     // UI & Style
     '@nuxtjs/tailwindcss',
+    '@nuxt/fonts',
     // Chore
     '@vueuse/nuxt',
     '@pinia/nuxt',
-    '@nuxtjs/eslint-module',
+    '@nuxt/eslint',
     '@nuxt/test-utils/module',
   ],
-  css: ['~/assets/css/fonts.css'],
+  fonts: {
+    families: [{ name: 'Lato', provider: 'google', weights: [400, 700, 900] }],
+  },
   runtimeConfig: {
     apiUrl: '',
   },

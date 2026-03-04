@@ -3,14 +3,9 @@ import type { ProductItem } from '~/types/dummyjson'
 
 const { reformateSlug, convertToUSD } = useHelper()
 
-const props = withDefaults(
-  defineProps<{
-    product: ProductItem
-  }>(),
-  {
-    product: () => ({}) as ProductItem,
-  },
-)
+const props = defineProps<{
+  product: ProductItem
+}>()
 </script>
 <template>
   <section class="product-detail-content">
@@ -21,15 +16,15 @@ const props = withDefaults(
       <div class="product-detail-content__info">
         <h2>{{ props.product.title }}</h2>
         <div class="product-detail-content__info-box-brand">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              fill="currentColor"
-              fill-rule="evenodd"
-              d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307a4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397a4.491 4.491 0 0 1-1.307 3.497a4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549a4.49 4.49 0 0 1-3.498-1.306a4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497a4.49 4.49 0 0 1 3.497-1.307m7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <h3>{{ props.product.brand }}</h3>
+          <p class="product-detail-content__info-box-brand-sku">
+            SKU: {{ props.product.sku }}
+          </p>
+          <p
+            v-if="props.product.availabilityStatus"
+            class="product-detail-content__info-box-brand-status"
+          >
+            {{ props.product.availabilityStatus }}
+          </p>
         </div>
         <div class="product-detail-content__info-wrap">
           <div class="product-detail-content__info-category">
